@@ -1,0 +1,209 @@
+\documentclass[12pt,a4paper]{book}
+
+\usepackage[a4paper,top=25mm,bottom=25mm,inner=28mm,outer=22mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black,citecolor=blue!45!black]{hyperref}
+\usepackage{xepersian}
+
+\settextfont[
+  Path={./fonts/},
+  UprightFont={IRLotusICEE.ttf},
+  BoldFont={IRLotusICEE_Bold.ttf},
+  BoldItalicFont={IRLotusICEE_BoldIranic.ttf},
+  ItalicFont={IRLotusICEE_Iranic.ttf},
+  FontFace={b}{n}{IRLotusICEE_Bold.ttf},
+  FontFace={bx}{n}{IRLotusICEE_Bold.ttf},
+  FontFace={b}{it}{IRLotusICEE_BoldIranic.ttf},
+  FontFace={bx}{it}{IRLotusICEE_BoldIranic.ttf},
+  FontFace={m}{sl}{IRLotusICEE_Iranic.ttf},
+  Scale=1.2
+]{IRLotusICEE.ttf}
+\setlatintextfont[
+  Path={./fonts/},
+  BoldFont={LiberationSerif-Bold.ttf},
+  BoldItalicFont={LiberationSerif-BoldItalic.ttf},
+  ItalicFont={LiberationSerif-Italic.ttf},
+  Scale=1
+]{LiberationSerif-Regular.ttf}
+\setdigitfont[
+  Path={./fonts/},
+  Scale=1.2
+]{IRLotusICEE.ttf}
+\defpersianfont\titlefont[
+  Path={./fonts/},
+  FontFace={b}{n}{IRTitr.ttf},
+  FontFace={bx}{n}{IRTitr.ttf},
+  FontFace={m}{it}{IRTitr.ttf},
+  Scale=1
+]{IRTitr.ttf}
+\defpersianfont\nast[Path={./fonts/}, Scale=2]{IranNastaliq.ttf}
+
+\linespread{1.22}
+\setlength{\parskip}{0.45em}
+\setlength{\parindent}{0pt}
+\setcounter{tocdepth}{2}
+\setlist[itemize]{topsep=0.2em,itemsep=0.15em}
+\setlist[enumerate]{topsep=0.2em,itemsep=0.15em}
+
+\definecolor{mainblue}{RGB}{24,75,125}
+\definecolor{softblue}{RGB}{235,243,252}
+\definecolor{softgreen}{RGB}{238,248,241}
+\definecolor{softyellow}{RGB}{255,248,226}
+\definecolor{softred}{RGB}{254,238,238}
+\definecolor{boxgray}{RGB}{245,246,248}
+
+\setlength{\headheight}{16pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\small\thepage}
+\fancyhead[RE]{\small\nouppercase{\leftmark}}
+\fancyhead[LO]{\small\nouppercase{\rightmark}}
+\renewcommand{\headrulewidth}{0.45pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{\small\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newtcolorbox{definitionbox}[1]{
+  enhanced,
+  breakable,
+  colback=softblue,
+  colframe=mainblue,
+  title={#1},
+  fonttitle=\bfseries,
+  boxrule=0.7pt,
+  arc=1mm,
+  right=2mm,left=2mm,top=1mm,bottom=1mm
+}
+
+\newtcolorbox{assignmentbox}[1]{
+  enhanced,
+  breakable,
+  colback=softyellow,
+  colframe=orange!65!black,
+  title={#1},
+  fonttitle=\bfseries,
+  boxrule=0.7pt,
+  arc=1mm,
+  right=2mm,left=2mm,top=1mm,bottom=1mm
+}
+
+\newtcolorbox{correctionbox}[1]{
+  enhanced,
+  breakable,
+  colback=softgreen,
+  colframe=green!45!black,
+  title={#1},
+  fonttitle=\bfseries,
+  boxrule=0.7pt,
+  arc=1mm,
+  right=2mm,left=2mm,top=1mm,bottom=1mm
+}
+
+\newtcolorbox{warningbox}[1]{
+  enhanced,
+  breakable,
+  colback=softred,
+  colframe=red!55!black,
+  title={#1},
+  fonttitle=\bfseries,
+  boxrule=0.7pt,
+  arc=1mm,
+  right=2mm,left=2mm,top=1mm,bottom=1mm
+}
+
+\newcommand{\eng}[1]{\lr{#1}}
+\newcommand{\term}[2]{\textbf{#1} \eng{(#2)}}
+\newcommand{\course}{علوم شناختی محاسباتی}
+\newcommand{\coursefigure}[3]{%
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=#1\textwidth]{figures/#2}
+  \caption{#3}
+\end{figure}
+}
+
+\title{{\titlefont\Huge \course}\\[0.5em]
+{\Large از نظریه‌های شناختی تا مدل‌های محاسباتی زبان و گفتار}}
+\author{دکتر زینب آقاهادی\\[0.4em]
+دانشگاه علم و صنعت ایران}
+\date{بهار ۱۴۰۵}
+
+\begin{document}
+\raggedbottom
+\frontmatter
+\maketitle
+
+\begingroup
+\thispagestyle{empty}
+\begin{latin}
+\centering
+\vspace*{0.16\textheight}
+{\Huge\bfseries Computational Cognitive Science\par}
+\vspace{3em}
+{\Large From Cognitive Theories to Computational Models of Language and Speech\par}
+\vfill
+{\Large\bfseries Zeinab Aghahadi\par}
+\vspace{1.2em}
+{\large Assistant Professor\par}
+{\large School of Computer Engineering\par}
+{\large Iran University of Science and Technology (IUST)\par}
+\vfill
+{\large Spring 2026\par}
+\vspace{0.5em}
+{\large Version 1.0\par}
+\end{latin}
+\clearpage
+\endgroup
+
+\begingroup
+\thispagestyle{empty}
+{\titlefont\LARGE چکیده\par}
+\vspace{1.5em}
+علوم شناختی محاسباتی با ساخت مدل‌های ریاضی، فرایندهای ذهنی و عصبی را مطالعه می‌کند و نشان می‌دهد چگونه می‌توان نظریه‌های شناختی را به مدل‌های محاسباتی آزمون‌پذیر برای زبان، گفتار و تصمیم‌گیری تبدیل کرد. مباحث از مبانی علوم شناختی و معماری‌های شناختی آغاز می‌شوند و سپس حافظه، بار شناختی، پیش‌بینی، سوگیری و توجه را در سامانه‌های انسانی و مصنوعی بررسی می‌کنند. در ادامه، مدل‌سازی ادراک شنیداری و گفتار، سازوکارهای پاداش و یادگیری تقویتی، و شبکه‌های عصبی اسپایکی و محاسبات نورومورفیک معرفی می‌شوند. فصل‌های پایانی نیز به مدل‌های اسپایکی نوین، کدگذاری و رمزگشایی عصبی، هم‌ترازی مغز و مدل، و شباهت خطاهای استدلالی انسان و مدل‌های زبانی می‌پردازند. هدف اصلی، ایجاد پلی میان مفاهیم نظری علوم شناختی و ابزارهای محاسباتی معاصر و فراهم‌کردن چارچوبی برای تحلیل، طراحی و ارزیابی مدل‌های شناختی است.
+
+\vfill
+\textbf{کلیدواژه‌ها:} علوم شناختی محاسباتی، مدل‌سازی شناختی، زبان و گفتار، معماری شناختی، یادگیری تقویتی، شبکه‌های عصبی اسپایکی، هم‌ترازی مغز و مدل
+\clearpage
+\endgroup
+
+\begingroup
+\thispagestyle{empty}
+\begin{latin}
+{\LARGE\bfseries Abstract\par}
+\vspace{1.5em}
+Computational cognitive science studies mental and neural processes by constructing mathematical models and explains how cognitive theories can be translated into testable computational models of language, speech, and decision-making. The discussion begins with the foundations of cognitive science and cognitive architectures, then examines memory, cognitive load, prediction, bias, and attention in human and artificial systems. Subsequent chapters introduce computational approaches to auditory and speech processing, reward mechanisms and reinforcement learning, spiking neural networks, and neuromorphic computing. The final chapters discuss modern spiking models, neural encoding and decoding, brain-model alignment, and similarities between human reasoning errors and those of language models. The overall aim is to connect theoretical concepts in cognitive science with contemporary computational tools and to provide a framework for analysing, designing, and evaluating cognitive models.
+
+\vfill
+\textbf{Keywords:} computational cognitive science, cognitive modelling, language and speech, cognitive architecture, reinforcement learning, spiking neural networks, brain-model alignment
+\end{latin}
+\clearpage
+\endgroup
+
+\tableofcontents
+
+\mainmatter
+
+\include{chapters/01-foundations}
+\include{chapters/02-architecture-memory-load}
+\include{chapters/03-prediction-bias-attention}
+\include{chapters/04-language-speech-auditory-models}
+\include{chapters/05-reward-rl-decision-making}
+\include{chapters/06-spiking-neural-networks}
+\include{chapters/07-modern-spiking-models}
+\include{chapters/08-brain-alignment-reasoning}
+
+\end{document}
